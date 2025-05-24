@@ -1,0 +1,47 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('../img/banner.png') center/cover no-repeat;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+a {
+    cursor: pointer;
+}
+
+/* Make the hero and cards stand out more */
+body.bg-light {
+  background-color: #f5f6fa !important;
+}
+
+/* Increase card rounding and shadow */
+.card {
+  border-radius: 0.75rem;
+}
+
+/* Navbar link hover */
+.navbar .nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Progress bars in table a bit shorter */
+#history-table .progress {
+  height: 0.75rem;
+}
+
+/* Card headers all caps */
+.card-header h5,
+.card-header h6 {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}

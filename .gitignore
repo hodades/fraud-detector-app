@@ -1,0 +1,22 @@
+# Byte-compiled / caches
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtualenv
+.venv/
+venv/
+
+# Editor temp files
+*.swp
+.vscode/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Model artifacts
+*.pkl

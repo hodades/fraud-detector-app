@@ -1,0 +1,65 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}
+nav.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+footer {
+  background-color: #f8f9fa;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.table tbody tr.fraud {
+  background-color: #fdecea;
+}
+.table tbody tr.legit {
+  background-color: #e8f5e9;
+}
+.table tbody td {
+  padding: 0.75rem 0.5rem;
+  vertical-align: middle;
+}
+.badge-fraud {
+  color: #b71c1c;
+  background-color: #ffebee;
+  font-weight: bold;
+}
+.badge-legit {
+  color: #1b5e20;
+  background-color: #e8f5e9;
+  font-weight: bold;
+}
+.progress-bar-fraud {
+  background-color: #ef9a9a;
+  color: black;
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.7);
+}
+.progress-bar-legit {
+  background-color: #a5d6a7;
+  color: black;
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.7);
+}
+
+@media (max-width: 576px) {
+  footer img {
+    height: 24px;   /* shrink the logo */
+  }
+  footer .text-muted {
+    font-size: 0.8rem;  /* smaller text so it fits on one line */
+  }
+}
+
