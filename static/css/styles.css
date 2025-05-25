@@ -16,32 +16,42 @@
 }
 
 a {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-/* Make the hero and cards stand out more */
 body.bg-light {
   background-color: #f5f6fa !important;
 }
 
-/* Increase card rounding and shadow */
 .card {
   border-radius: 0.75rem;
 }
 
-/* Navbar link hover */
 .navbar .nav-link:hover {
   text-decoration: underline;
 }
 
-/* Progress bars in table a bit shorter */
 #history-table .progress {
   height: 0.75rem;
 }
 
-/* Card headers all caps */
 .card-header h5,
 .card-header h6 {
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+.btn-demo {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #ffffff;
+  font-weight: 600;
+}
+
+.btn-demo:hover,
+.btn-demo:focus {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000000;
+  border-color: #ffffff;
+  text-decoration: none;
 }

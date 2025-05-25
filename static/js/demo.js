@@ -1,11 +1,11 @@
-const resultsDiv   = document.getElementById('results');
+const resultsDiv = document.getElementById('results');
 const historyTbody = document.querySelector('#history-table tbody');
-let entryCount     = 0;
+let entryCount = 0;
 
 function clearAll() {
-  resultsDiv.innerHTML    = '';
-  historyTbody.innerHTML  = '';
-  entryCount              = 0;
+  resultsDiv.innerHTML = '';
+  historyTbody.innerHTML = '';
+  entryCount = 0;
 }
 
 function showResultSummary(total = 0, frauds = 0) {
@@ -30,14 +30,14 @@ function showResultSummary(total = 0, frauds = 0) {
 
 function appendHistoryRow(item) {
   entryCount++;
-  const amt     = item.amount   != null ? parseFloat(item.amount).toFixed(2) : '—';
-  const t       = item.time     != null ? item.time : '—';
+  const amt = item.amount != null ? parseFloat(item.amount).toFixed(2) : '—';
+  const t = item.time != null ? item.time : '—';
   const isFraud = item.prediction === 1;
-  const badge   = isFraud
+  const badge = isFraud
     ? '<span class="badge badge-fraud">❌ Fraud</span>'
     : '<span class="badge badge-legit">✅ Legit</span>';
-  const pct     = (item.probability * 100).toFixed(1);
-  const barCls  = isFraud ? 'progress-bar-fraud' : 'progress-bar-legit';
+  const pct = (item.probability * 100).toFixed(1);
+  const barCls = isFraud ? 'progress-bar-fraud' : 'progress-bar-legit';
 
   const tr = document.createElement('tr');
   tr.className = isFraud ? 'fraud' : 'legit';
@@ -66,7 +66,6 @@ async function runBatch(blob, filename) {
   const form = new FormData();
   form.append('file', blob, filename);
 
-  // POST to the prediction endpoint, not back to the CSV
   const res = await fetch('/api/predict', {
     method: 'POST',
     body: form
@@ -82,11 +81,11 @@ document.getElementById('single-form').onsubmit = async e => {
   e.preventDefault();
   const payload = {
     Amount: document.getElementById('amount').value,
-    Time:   document.getElementById('time').value
+    Time: document.getElementById('time').value
   };
   const res = await fetch('/api/predict', {
     method: 'POST',
-    headers: {'Content-Type':'application/json'},
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
   });
   const data = await res.json();
@@ -95,19 +94,19 @@ document.getElementById('single-form').onsubmit = async e => {
     <div class="card shadow-sm mb-4">
       <div class="card-body">
         ${isFraud
-          ? '<span class="badge badge-fraud">❌ Fraud</span>'
-          : '<span class="badge badge-legit">✅ Legit</span>'}
+      ? '<span class="badge badge-fraud">❌ Fraud</span>'
+      : '<span class="badge badge-legit">✅ Legit</span>'}
         <div class="mt-3">
-          <label>Fraud Probability: ${(data.probability*100).toFixed(1)}%</label>
+          <label>Fraud Probability: ${(data.probability * 100).toFixed(1)}%</label>
           <div class="progress" style="height:1rem;">
             <div
               class="progress-bar ${isFraud ? 'progress-bar-fraud' : 'progress-bar-legit'}"
               role="progressbar"
-              style="width:${(data.probability*100).toFixed(1)}%"
-              aria-valuenow="${(data.probability*100).toFixed(1)}"
+              style="width:${(data.probability * 100).toFixed(1)}%"
+              aria-valuenow="${(data.probability * 100).toFixed(1)}"
               aria-valuemin="0"
               aria-valuemax="100"
-            >${(data.probability*100).toFixed(1)}%</div>
+            >${(data.probability * 100).toFixed(1)}%</div>
           </div>
         </div>
       </div>
