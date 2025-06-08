@@ -80,9 +80,12 @@ async function runBatch(blob, filename) {
 document.getElementById('single-form').onsubmit = async e => {
   e.preventDefault();
   const payload = {
-    Amount: document.getElementById('amount').value,
-    Time: document.getElementById('time').value
+    Amount: parseFloat(document.getElementById('Amount').value)
   };
+  for (let i = 1; i <= 28; i++) {
+    payload[`V${i}`] = parseFloat(document.getElementById(`V${i}`).value);
+  }
+
   const res = await fetch('/api/predict', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -122,7 +125,7 @@ document.getElementById('batch-form').onsubmit = async e => {
 };
 
 document.getElementById('test-btn').onclick = async () => {
-  const resp = await fetch('/static/creditcard-mini.csv');
+  const resp = await fetch('/static/test_data.csv');
   const blob = await resp.blob();
-  await runBatch(blob, 'creditcard-mini.csv');
+  await runBatch(blob, 'test_data.csv');
 };

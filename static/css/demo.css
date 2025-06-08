@@ -95,6 +95,10 @@ footer {
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
 }
 
+.progress-bar {
+  overflow: visible;
+}
+
 .nav-tabs .nav-link {
   color: #0D1F6F !important;
 }

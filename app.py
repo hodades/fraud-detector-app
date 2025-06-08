@@ -65,9 +65,9 @@ def predict():
         print("Error in /api/predict:", str(e))
         return jsonify({'error': str(e)}), 400
 
-@app.route('/static/creditcard-mini.csv')
+@app.route('/static/test_data.csv')
 def serve_test_csv():
-    return send_from_directory('static', 'creditcard-mini.csv', as_attachment=False)
+    return send_from_directory('static', 'test_data.csv', as_attachment=False)
 
 if __name__ == '__main__':
     print("Starting Flask server…")
